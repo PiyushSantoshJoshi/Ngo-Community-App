@@ -22,6 +22,9 @@ import PendingNgos from './pages/Pendingngos';
 import NgoDashboard from './pages/NgoDashboard';
 import NgoRequirementsManage from './pages/NgoRequirementsManage';
 import AdminPendingRequirements from './pages/AdminPendingRequirements';
+import ProfilePage from './pages/ProfilePage';
+import AboutUs from './pages/AboutUs'; // New page
+
 
 // Import Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -43,6 +46,7 @@ function App() {
                 <Route path="/ngo-register" element={<NgoRegister />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/requirements" element={<Requirements />} />
+                <Route path="/about" element={<AboutUs />} />
 
                 {/* Protected Routes */}
                 <Route 
@@ -94,6 +98,15 @@ function App() {
                   element={
                     <ProtectedRoute requireAuth={true} requireAdmin={true}>
                       <AdminPendingRequirements />
+                    </ProtectedRoute>
+                  } 
+                />
+                //ProfilePage
+                <Route 
+                  path="/profile" 
+                  element={
+                    <ProtectedRoute requireAuth={true}>
+                      <ProfilePage />
                     </ProtectedRoute>
                   } 
                 />
